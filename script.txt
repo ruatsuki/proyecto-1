@@ -1,0 +1,99 @@
+CREATE SCHEMA direct_sale;
+USE direct_sale;
+
+CREATE TABLE producto
+(
+     idprod int NOT NULL PRIMARY KEY,
+     nombreprod nvarchar (50) NOT NULL,
+     descripcionprod nvarchar (250),
+     idcat int,
+     idmarca int,
+     idprov int NOT NULL
+);
+
+CREATE TABLE categoria
+(
+    idcat int NOT NULL PRIMARY KEY,
+    nombrecat nvarchar(50) NOT NULL,
+    descripcioncat nvarchar(120)
+);
+
+CREATE TABLE marca
+(
+    idmarc int NOT NULL PRIMARY KEY,
+    nombremarc nvarchar(50) NOT NULL,
+    descripcionmar nvarchar(120)
+);
+
+CREATE TABLE cliente
+(
+    idcte int NOT NULL PRIMARY KEY,
+    nombrecte nvarchar(25) NOT NULL,
+    apellido1cte nvarchar(40) NOT NULL,
+    apellido2cte nvarchar(40) NOT NULL,
+    nitcte nvarchar(15) NOT NULL,
+    emailcte nvarchar(50),
+    direccioncte nvarchar(100),
+    telefonocte nvarchar(15)
+);
+
+CREATE TABLE proveedor
+(
+    idprov int NOT NULL PRIMARY KEY,
+    nombreprov nvarchar(60) NOT NULL,   
+    nitprov nvarchar(15),
+    emailprov nvarchar(50),
+    direccionprov nvarchar(100),
+    telefonoprov nvarchar(15)
+);
+
+CREATE TABLE empleado
+(
+    idemp int NOT NULL PRIMARY KEY,
+    idsuc int NOT NULL,
+    nombremp nvarchar(60) NOT NULL,   
+    apellido1emp nvarchar(40) NOT NULL,
+    apellido2emp nvarchar(40) NOT NULL,
+    nitemp nvarchar(15) NOT NULL,
+    emailemp nvarchar(50),
+    direccionemp nvarchar(100),
+    telefonoemp nvarchar(15),
+    
+    sueldoemp nvarchar(100)    
+);
+
+CREATE TABLE inventario
+(
+    idinv int NOT NULL PRIMARY KEY,
+    idprod int NOT NULL,
+    idsuc int NOT NULL,
+    cantidadinv int NOT NULL,
+    precio_comprainv nvarchar(10),
+    precio_ventainv nvarchar(10)
+);
+
+CREATE TABLE sucursal
+(
+    idsuc int NOT NULL PRIMARY KEY,
+    nombresuc nvarchar(50) NOT NULL,
+    direccionsuc nvarchar(120)
+);
+
+CREATE TABLE bodega
+(
+    idbod int NOT NULL PRIMARY KEY,
+    direccionbod nvarchar(50) NOT NULL,
+    telefonobod nvarchar(120)
+);
+
+
+CREATE TABLE banco
+(
+    idbanc int NOT NULL PRIMARY KEY,
+    nombrebanc nvarchar(50) NOT NULL,
+    tipoctabanc nvarchar(120),
+    saldobanc nvarchar(120)
+);
+
+
+
